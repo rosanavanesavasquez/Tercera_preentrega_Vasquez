@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Entregables</title>
+</head>
+<body>
+    <h1>Lista de Entregables</h1>
+    <ul>
+        {% for entregable in entregables %}
+            <li>{{ entregable.nombre }}</li>
+        {% empty %}
+            <li>No hay entregables disponibles.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

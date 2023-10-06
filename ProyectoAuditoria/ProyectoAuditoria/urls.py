@@ -20,5 +20,9 @@ from AppAuditoria import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.pagina_de_inicio, name='pagina_de_inicio'),
     path('auditores/', views.listar_auditores, name='lista_auditores'),
+    path('auditados/', views.lista_auditados, name='lista_auditados'),
+    path('sectores/', views.lista_sectores, name='lista_sectores'),
+    path('entregables/', views.lista_entregables, name='lista_entregables'),
 ]
