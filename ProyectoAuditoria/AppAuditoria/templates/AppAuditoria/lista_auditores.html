@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Auditores</title>
+</head>
+<body>
+    <h1>Lista de Auditores</h1>
+    <ul>
+        {% for auditor in auditores %}
+            <li>{{ auditor.nombre }} {{ auditor.apellido }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
