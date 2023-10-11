@@ -2,11 +2,11 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Auditor, Auditado, Sector, Entregable
 
-def vista_ejemplo(request):
-    return HttpResponse("Esta es una vista de ejemplo en AppAuditoria.")
+#def vista_ejemplo(request):
+#   return HttpResponse("Esta es una vista de ejemplo en AppAuditoria.")
 
 def pagina_de_inicio(request):
-    return render(request, 'appauditoria/pagina_de_inicio.html')
+    return render(request, 'AppAuditoria/index.html')
 
 def listar_auditores(request):
     auditores = Auditor.objects.all()
