@@ -1,16 +1,29 @@
 <!DOCTYPE html>
+
+{% extends 'AppAuditoria/base.html' %}
+
+{% load static %}
+
+{% block section1 %}
+
 <html>
 <head>
-    <title>Lista de Entregables</title>
+    <title>Informe de Auditorias</title>
 </head>
 <body>
-    <h1>Lista de Entregables</h1>
+    <h1>Reportes de Auditorias </h1>
     <ul>
         {% for entregable in entregables %}
             <li>{{ entregable.nombre }}</li>
         {% empty %}
-            <li>No hay entregables disponibles.</li>
+            <li>No hay Reportes de Auditoría Realizados.</li>
+
+
+            
         {% endfor %}
     </ul>
 </body>
 </html>
+
+
+{% endblock %}
