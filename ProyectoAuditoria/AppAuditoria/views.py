@@ -24,6 +24,22 @@ def lista_entregables(request):
     entregables = Entregable.objects.all()
     return render(request, 'appauditoria/lista_entregables.html', {'entregables': entregables})
 
+def entregables_Formulario(request):
+    if request.method == 'POST':
+        nombre = request.POST['nombre']
+        fecha_de_auditoria = request.POST['fechaDeAuditoria']
+        resultado_auditoria = request.POST['resultado_auditoria']
 
+        # Crea una nueva instancia de Entregable y guárdala en la base de datos
+        entregable = Entregable(nombre=nombre, fechaDeAuditoria=fecha_de_auditoria)
+
+        if resultado_auditoria == "OK":
+            entregable.auditoria_ok = True
+        elif resultado_auditoria == "NG":
+            entregable.auditoria_ng = True
+
+        entregable.save()
+
+    return render(request, "appauditoria/entregables_Formulario.html")
 
 
