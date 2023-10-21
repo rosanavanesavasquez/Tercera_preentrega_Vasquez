@@ -42,4 +42,11 @@ def entregables_Formulario(request):
 
     return render(request, "appauditoria/entregables_Formulario.html")
 
+def leerEntregables(request):
+
+      entregables = Entregable.objects.all() #trae todos los resultados de las auditorias
+
+      contexto= {"entregables":entregables} 
+
+      return render(request, "AppAuditoria/leerEntregables.html",contexto)
 

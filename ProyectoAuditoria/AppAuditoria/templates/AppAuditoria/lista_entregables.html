@@ -6,6 +6,7 @@
 
 {% block section1 %}
 
+<!-- Lo comento para revisar 
 <html>
 <head>
     <title>Informe de Auditorias</title>
@@ -24,6 +25,31 @@
     </ul>
 </body>
 </html>
+-->
 
+<div class="container">
+    <h1>Resultado de las Auditorias Realizadas</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Fecha de Auditoría</th>
+                <th>Resultado de Auditoría (OK/NG)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entregable in entregables %}
+                <tr>
+                    <td>{{ entregable.nombre }}</td>
+                    <td>{{ entregable.fechaDeAuditoria }}</td>
+                    <td>
+                        {% if entregable.auditoria_ok %} OK {% endif %}
+                        {% if entregable.auditoria_ng %} NG {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 
 {% endblock %}
