@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Auditor, Auditado, Sector, Entregable
-
+from AppAuditoria.forms import AuditorFormulario
 #def vista_ejemplo(request):
 #   return HttpResponse("Esta es una vista de ejemplo en AppAuditoria.")
 
@@ -30,7 +30,7 @@ def entregables_Formulario(request):
         fecha_de_auditoria = request.POST['fechaDeAuditoria']
         resultado_auditoria = request.POST['resultado_auditoria']
 
-        # Crea una nueva instancia de Entregable y guárdala en la base de datos
+        # Crea una nueva instancia de Entregable y la guardará en la base de datos
         entregable = Entregable(nombre=nombre, fechaDeAuditoria=fecha_de_auditoria)
 
         if resultado_auditoria == "OK":
@@ -50,3 +50,17 @@ def leerEntregables(request):
 
       return render(request, "AppAuditoria/leerEntregables.html",contexto)
 
+def auditorFormulario(request):
+    if request.method == "POST":
+        miFormulario = AuditorFormulario (request.POST)  # Pasa 'request' como argumento al formulario
+        print(miFormulario)
+        
+        if miFormulario.is_valid():
+            informacion = miFormulario.cleaned_data
+            auditor = Auditor(nombre=informacion["nombre"], apellido=informacion["apellido"], email=informacion["email"])
+            auditor.save()
+            return render(request, "AppAuditoria/index.html")  # Redirige 
+    else:
+        miFormulario = AuditorFormulario()  # 
+
+    return render(request, "AppAuditoria/auditores_Formulario.html",{"miFormulario": miFormulario})  # 

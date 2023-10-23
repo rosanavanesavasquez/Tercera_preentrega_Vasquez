@@ -14,9 +14,6 @@
                                 <p class="lead fw-normal text-white-50 mb-4">Urilice esta Herramienta para realizar una auditoría rápida en líneas de producción con el fin de concientizar al personal sobre los conceptos básicos de calidad!
 
                                 </p>
-                                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                                    <a class="btn btn-primary btn-lg px-4 me-sm-3" href="{% url 'entregables_Formulario' %}">Comience la Auditoría</a>
-
             <!-- Antes de empezar-->
                                     <a class="btn btn-outline-light btn-lg px-4" href="#!" data-bs-toggle="modal" data-bs-target="#antesDeEmpezarModal">Antes de empezar</a>
 <!-- Modal para "Antes de empezar" -->
@@ -39,6 +36,9 @@
                 </ul>
                 <p>¡Y eso es todo! Estás listo para comenzar a realizar auditorías en líneas de producción.</p>
             </div>
+            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+                <a class="btn btn-primary btn-lg px-4 me-sm-3" href="{% url 'entregables_Formulario' %}">Comience la Auditoría</a>
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             </div>
@@ -90,3 +90,4 @@
             </section>
 
 {% endblock %}
+
